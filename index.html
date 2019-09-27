@@ -50,7 +50,17 @@
     <!-- piyush  -->
   
     <div id="load_screen">
-      <div id="loading"> <svg class="logo" width="" height="" viewBox="0 0 842 297" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <div id="loading"> 
+        <div class="loader">
+          <div class="wrapper" style="color: #68B867; font-size: 30px;">Loading
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <svg class="logo1" width="" height="" viewBox="0 0 842 297" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="logo" fill="#37B667" fill-rule="nonzero">
                       <g id="Group">
@@ -92,31 +102,82 @@
                       </g>
                   </g>
               </g>
-          </svg></div>      
+          </svg></div> 
     </div>
-
-     <style type="text/css">
+   <style type="text/css">
+    <!-- win load animation -->
+      body {
+        background:none;
+      }
+      .loader,.wrapper {
+        position:absolute;
+        top:60%;
+        left:50%;
+        transform:translate(-50%,-50%);
+      }
+      .loader {
+        width:90vw;
+      }
+      .loader .wrapper span {
+        width:5px;
+        height:5px;
+        background:#68B867;
+        display:inline-block;
+        position:relative;
+        margin:0px 2px;
+        border-radius:50%;
+        opacity:0;
+        animation:loading 3000ms ease-in-out infinite;
+      }
+      .loader .wrapper span:nth-child(5) {
+        animation-delay:100ms;
+      }
+      .loader .wrapper span:nth-child(4) {
+        animation-delay:200ms;
+      }
+      .loader .wrapper span:nth-child(3) {
+        animation-delay:300ms;
+      }
+      .loader .wrapper span:nth-child(2) {
+        animation-delay:400ms;
+      }
+      .loader .wrapper span:nth-child(1) {
+        animation-delay:500ms;
+      }
+      @keyframes loading {
+        0% {
+          transform:translateX(-350px);
+          opacity:0;
+        }
+        35%,65% {
+          transform:translateX(0px);
+          opacity:1;
+        }
+        100% {
+          transform:translateX(350px);
+          opacity:0;
+        }  
+      }
+      /*laod screen css*/
       div#load_screen {
         background-color: white;
         opacity: 1;
-        position: fixed;
         z-index: 10;
         top:0px;
         width: 100%;
         height: 1600px;
       }
-      div#load_screen > div#loading{
-        width: 240px;
-        height:48px;
-        margin:300px auto;
+      .logo1,div#load_screen > div#loading{
+        width: 440px;
+        height:168px;
+        margin:200px auto;
       }
     </style>
     <script type="text/javascript">
-      window.addEventListener("load", function(){
-        var load_screen = document.getElementById("load_screen");
-        document.body.removeChild(load_screen);
-      });
-    </script>
+      setTimeout(function(){
+      document.getElementById("load_screen").style.display="none";
+      }, 5000);  
+     </script>
     <!-- p=end -->
       <main class="main">
 <article class="primary-wrapper">
